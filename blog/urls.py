@@ -1,7 +1,8 @@
+from django.contrib import admin
 from django.urls import path
-from blog.views import post_view as views
+from django.views.generic import RedirectView
 
 urlpatterns = [
-    path('', views.PostListView.as_view(), name='home'),
-    path('post/<int:pk>/', views.PostDetailView.as_view(), name='post_detail'),
+    path('admin/', admin.site.urls),
+    path('', RedirectView.as_view(url='/admin/', permanent=True)),  # 👈 redireciona raiz para admin
 ]
