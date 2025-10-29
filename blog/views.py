@@ -1,11 +1,10 @@
 from django.http import HttpResponse
-from django.views import generic
-from django.views.generic import ListView, DetailView
-from blog.models import Post
+from django.views.generic import View, ListView, DetailView
+from .models import Post
 
-class PostView(generic.View):
+class PostView(View):
     def get(self, request, *args, **kwargs):
-        return HttpResponse('Hello World!')
+        return HttpResponse("Hello World!")
 
 class PostListView(ListView):
     model = Post

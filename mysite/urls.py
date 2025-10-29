@@ -20,6 +20,7 @@ from django.views.generic import RedirectView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', RedirectView.as_view(url='/admin/', permanent=False)),  # Redireciona raiz para admin
+    path('hello/', include('blog.urls')),
+    path('', RedirectView.as_view(url='/hello/', permanent=False)),
 ]
 
